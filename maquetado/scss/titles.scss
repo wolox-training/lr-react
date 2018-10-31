@@ -1,12 +1,16 @@
-.content {
+.title {
+  align-items: center;
   display: flex;
-  padding: 10px;
-  img {
-    height: 130px;
-    margin: -6px -25px 0 0;
-  }
-  h1 {
-    align-self: center;
-    font-size: 32px;
+  font-size: 22px;
+  height: 90px;
+  padding-left: 52px;
+  position: relative;
+
+  &::before {
+    content: url(./assets/triangle.svg);
+    left: 0;
+    position: absolute;
+    width: 70px;
+    z-index: -1;
   }
 }
