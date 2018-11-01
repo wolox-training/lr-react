@@ -1,17 +1,27 @@
+$blue: #00ADEE;
 $green: #BED23C;
+$grey: #C4C4C4;
+$tech-logo-size: 100px;
 
 nav {
   border: solid 1px $green;
   border-radius: 5px;
   height: 270px;
   width: 180px;
+
+  &::before {
+    background: $green;
+    border-radius: 5px;
+    content: '';
+    height: 270px;
+    margin: 7px;
+    position: absolute;
+    width: 180px;
+  }
 }
+
 .tech {
-  background: $green;
-  border-radius: 5px;
-  height: 270px;
-  margin: 7px;
-  width: 180px;
+  position: relative;
   h4 {
     display: flex;
     justify-content: center;
@@ -25,7 +35,7 @@ nav {
 .logo {
   align-items: center;
   display: flex;
-  height: 100px;
+  height: $tech-logo-size;
   margin: auto;
   padding: 11px;
 }
