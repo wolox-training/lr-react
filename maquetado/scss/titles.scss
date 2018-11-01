@@ -1,8 +1,14 @@
+$text-big: 12px;
+$text-big: 16px;
+$text-big: 24px;
+$title-decoration-height: 90px;
+$title-decoration-width: 70px;
+
 .title {
   align-items: center;
   display: flex;
-  font-size: 22px;
-  height: 90px;
+  font-size: $text-big;
+  height: $title-decoration-height;
   padding-left: 52px;
   position: relative;
 
@@ -10,7 +16,7 @@
     content: url(./assets/triangle.svg);
     left: 0;
     position: absolute;
-    width: 70px;
+    width: $title-decoration-width;
     z-index: -1;
   }
 }
