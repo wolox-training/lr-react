@@ -24,6 +24,7 @@ nav {
   border: solid 1px $green;
   border-radius: 5px;
   height: 270px;
+  margin: 10px 0;
   width: 180px;
 
   &::before {
@@ -45,6 +46,7 @@ nav {
     margin-top: 10px;
   }
   p {
+    font-size: $text-small;
     padding: 10px 16px;
     text-align: center;
   }
@@ -54,7 +56,7 @@ nav {
   display: flex;
   height: $tech-logo-size;
   margin: auto;
-  padding: 11px;
+  padding: 13px;
 }
 .express-sty,
 .django-sty {
@@ -62,6 +64,7 @@ nav {
   display: flex;
   height: 50px;
   margin: auto;
+  margin: 32px auto;
   padding: 11px;
 }
 .title-bold {
