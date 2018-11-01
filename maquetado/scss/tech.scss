@@ -1,24 +1,42 @@
 $green: #BED23C;
 
+.content {
+  /*display: flex;
+  flex-wrap: wrap;*/
+  padding: 15px 150px;
+  width: 100%;
+}
+.title {
+  width: 100%;
+}
+.frontend {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: space-between;
+  padding: 40px;
+  width: 100%;
+}
 nav {
   border: solid 1px $green;
   border-radius: 5px;
-  height: 270px;
-  width: 180px;
+  height: 295px;
+  margin: 10px;
+  width: 200px;
 }
 .tech {
   background: $green;
   border-radius: 5px;
-  height: 270px;
-  margin: 7px;
-  width: 180px;
+  height: 295px;
+  margin: 9px;
+  width: 200px;
   h4 {
     display: flex;
     justify-content: center;
     margin-top: 10px;
   }
   p {
-    padding: 10px 19px;
+    padding: 10px 16px;
     text-align: center;
   }
 }
@@ -26,6 +44,14 @@ nav {
   align-items: center;
   display: flex;
   height: 100px;
+  margin: auto;
+  padding: 11px;
+}
+.express-sty,
+.django-sty {
+  align-items: center;
+  display: flex;
+  height: 50px;
   margin: auto;
   padding: 11px;
 }
