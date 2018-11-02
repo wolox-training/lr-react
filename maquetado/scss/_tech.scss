@@ -3,7 +3,8 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  max-width: 100%;
+  padding: 14px;
   position: relative;
   text-align: center;
   width: 180px;
@@ -14,7 +15,6 @@
     bottom: 5px;
     content: '';
     height: 100%;
-    max-width: 270px;
     position: absolute;
     right: 7px;
     width: 100%;
@@ -32,7 +32,6 @@
 
 .tech-logo {
   height: $tech-logo-size;
-  margin-top: 10px;
 }
 
 .title-bold {
