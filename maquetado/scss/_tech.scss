@@ -1,38 +1,38 @@
-.card {
+.tech {
   background-color: $green;
   border-radius: 5px;
-  height: 270px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
   text-align: center;
   width: 180px;
-
-  .tech-title {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  .tech-conte {
-    font-size: $text-small;
-    padding: 10px 19px;
-  }
 
   &::before {
     border: solid 1px $green;
     border-radius: 5px;
+    bottom: 5px;
     content: '';
-    height: 70%;
-    left: 44px;
+    height: 100%;
+    max-width: 270px;
     position: absolute;
-    top: 135px;
-    width: 180px;
+    right: 7px;
+    width: 100%;
   }
 }
 
+.tech-title {
+  margin-top: 10px;
+}
+
+.tech-content {
+  font-size: $text-small;
+  padding: 10px 19px;
+}
+
 .tech-logo {
-  align-items: center;
-  display: flex;
   height: $tech-logo-size;
-  margin: auto;
-  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .title-bold {
