@@ -1,40 +1,40 @@
 .card {
-  background: $green;
+  background-color: $green;
   border-radius: 5px;
   height: 270px;
+  text-align: center;
   width: 180px;
+
+  .tech-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .tech-conte {
+    font-size: $text-small;
+    padding: 10px 19px;
+  }
 
   &::before {
     border: solid 1px $green;
     border-radius: 5px;
     content: '';
-    height: 270px;
-    margin: -7px;
+    height: 70%;
+    left: 44px;
     position: absolute;
+    top: 135px;
     width: 180px;
   }
 }
 
-.tech {
-  position: relative;
-  h4 {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  p {
-    font-size: $text-small;
-    padding: 10px 19px;
-    text-align: center;
-  }
-}
-.logo {
+.tech-logo {
   align-items: center;
   display: flex;
   height: $tech-logo-size;
   margin: auto;
-  padding: 11px;
+  padding-top: 10px;
 }
+
 .title-bold {
   font-weight: bold;
 }
