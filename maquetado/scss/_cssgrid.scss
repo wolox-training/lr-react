@@ -1,0 +1,27 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  font-size: 30px;
+  padding: 20px;
+  text-align: center;
+}
+.grid-items {
+  display: flex;
+  font-size: 30px;
+  grid-column: 1;
+  grid-row: 2 / 4;
+  padding: 20px;
+  text-align: center;
+}
+
+.grid-itemss {
+  display: flex;
+  font-size: 30px;
+  grid-column: 1;
+  grid-row: 5 / 8;
+  padding: 20px;
+  text-align: center;
+}

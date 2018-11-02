@@ -17,30 +17,19 @@
 }
 
 .card {
-  background: $green;
   border-radius: 5px;
   height: 280px;
   margin: 10px 0;
+  margin: auto;
   width: 180px;
 
   &::before {
-    border: solid 1px $green;
     border-radius: 5px;
     content: '';
     height: 280px;
     margin: -9px;
     position: absolute;
     transition: all 0.9s ease;
-    width: 180px;
-  }
-
-  &:hover::before {
-    border: solid 1px $green;
-    border-radius: 5px;
-    content: '';
-    height: 280px;
-    margin: 9px;
-    position: absolute;
     width: 180px;
   }
 }
