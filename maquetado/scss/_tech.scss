@@ -1,15 +1,15 @@
-nav {
-  border: solid 1px $green;
+.card {
+  background: $green;
   border-radius: 5px;
   height: 270px;
   width: 180px;
 
   &::before {
-    background: $green;
+    border: solid 1px $green;
     border-radius: 5px;
     content: '';
     height: 270px;
-    margin: 7px;
+    margin: -7px;
     position: absolute;
     width: 180px;
   }
@@ -23,6 +23,7 @@ nav {
     margin-top: 10px;
   }
   p {
+    font-size: $text-small;
     padding: 10px 19px;
     text-align: center;
   }
