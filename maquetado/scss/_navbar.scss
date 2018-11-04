@@ -3,12 +3,9 @@
   background-color: $white;
   box-shadow: 1px 10px 8px $grey;
   display: flex;
-  flex-direction: row;
   height: $title-decoration-height;
-  justify-content: space-between;
-  left: 0;
+  overflow: hidden;
   padding: 15px;
-  padding: 20px 10px;
   position: fixed;
   text-align: end;
   top: 0;
@@ -22,9 +19,9 @@
     height: 30px;
     width: 100%;
   }
+}
 
-  h3 {
-    font-size: $text-big;
-    width: inherit;
-  }
+.title-navbar {
+  font-size: $text-big;
+  width: inherit;
 }
