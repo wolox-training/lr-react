@@ -1,13 +1,12 @@
 .content {
-  /*display: flex;
-  flex-wrap: wrap;*/
-  padding: 15px 150px;
-  width: 100%;
+  margin: 30px auto;
+  max-width: 100%;
+  width: 1024px;
 }
 .title {
   width: 100%;
 }
-.frontend {
+.section-tech {
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
@@ -16,55 +15,48 @@
   width: 100%;
 }
 
-.card {
-  background: $green;
+.tech {
+  align-items: center;
+  background-color: $green;
   border-radius: 5px;
-  height: 280px;
-  margin: 10px 0;
-  width: 180px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  max-width: 100%;
+  padding: 14px;
+  position: relative;
+  text-align: center;
+  width: 200px;
 
   &::before {
     border: solid 1px $green;
     border-radius: 5px;
+    bottom: 5px;
     content: '';
-    height: 280px;
-    margin: -9px;
+    height: 100%;
     position: absolute;
+    right: 7px;
     transition: all 0.9s ease;
-    width: 180px;
+    width: 100%;
   }
 
   &:hover::before {
-    border: solid 1px $green;
-    border-radius: 5px;
-    content: '';
-    height: 280px;
-    margin: 9px;
-    position: absolute;
-    width: 180px;
+    margin: -15px;
   }
 }
 
-.tech {
-  position: relative;
-  h4 {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  p {
-    font-size: $text-small;
-    padding: 10px 16px;
-    text-align: center;
-  }
+.tech-title {
+  margin-top: 10px;
 }
 
-.logo {
-  align-items: center;
-  display: flex;
+.tech-content {
+  font-size: $text-small;
+  padding: 10px 19px;
+}
+
+.tech-logo {
   height: $tech-logo-size;
-  margin: auto;
-  padding: 13px;
+  width: $tech-logo-size;
 }
 .express-sty,
 .django-sty {
@@ -75,6 +67,7 @@
   margin: 32px auto;
   padding: 11px;
 }
+
 .title-bold {
   font-weight: bold;
 }
