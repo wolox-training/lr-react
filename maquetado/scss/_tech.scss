@@ -39,12 +39,12 @@
     height: 100%;
     position: absolute;
     right: 7px;
-    transition: all 0.9s ease;
+    transition: transform 0.9s ease;
     width: 100%;
   }
 
   &:hover::before {
-    margin: -15px;
+    transform: translate(15px,15px);
   }
 }
 
