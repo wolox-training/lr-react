@@ -33,12 +33,7 @@
     height: 100%;
     position: absolute;
     right: 7px;
-    transition: all 0.9s ease;
     width: 100%;
-  }
-
-  &:hover::before {
-    margin: -15px;
   }
 }
 
@@ -54,15 +49,6 @@
 .tech-logo {
   height: $tech-logo-size;
   width: $tech-logo-size;
-}
-.express-sty,
-.django-sty {
-  align-items: center;
-  display: flex;
-  height: 50px;
-  margin: auto;
-  margin: 32px auto;
-  padding: 11px;
 }
 
 .title-bold {
