@@ -3,16 +3,17 @@
   max-width: 100%;
   width: 1024px;
 }
+
 .title {
   width: 100%;
 }
+
 .section-tech {
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
   justify-content: space-between;
-  padding: 40px;
-  width: 100%;
+  margin: 40px;
 }
 
 .tech {
@@ -57,15 +58,6 @@
 .tech-logo {
   height: $tech-logo-size;
   width: $tech-logo-size;
-}
-.express-sty,
-.django-sty {
-  align-items: center;
-  display: flex;
-  height: 50px;
-  margin: auto;
-  margin: 32px auto;
-  padding: 11px;
 }
 
 .title-bold {
