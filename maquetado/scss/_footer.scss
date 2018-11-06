@@ -1,0 +1,19 @@
+.footer {
+  align-items: center;
+  background-color: $blue;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  width: 100%;
+}
+
+.text-footer {
+  color: $white;
+  font-size: $text-big;
+  margin-bottom: 15px;
+}
+
+.text-copyright {
+  align-self: flex-end;
+  color: $white;
+}
