@@ -1,0 +1,21 @@
+.navbar {
+  align-items: center;
+  background-color: $white;
+  box-shadow: 1px 10px 8px $grey;
+  display: flex;
+  height: $navbar-height;
+  justify-content: space-between;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.logo-navbar {
+  height: $navbar-logo-height;
+}
+
+.title-navbar {
+  font-size: $text-big;
+}
