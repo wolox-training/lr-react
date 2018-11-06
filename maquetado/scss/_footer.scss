@@ -3,7 +3,7 @@
   background-color: $blue;
   display: flex;
   flex-direction: column;
-  padding-top: 24px;
+  padding: 18px;
   width: 100%;
 }
 
@@ -16,5 +16,4 @@
 .text-copyright {
   align-self: flex-end;
   color: $white;
-  padding: 10px;
 }
