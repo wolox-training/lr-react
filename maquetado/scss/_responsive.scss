@@ -13,7 +13,7 @@
 
   .title {
     justify-content: center;
-    margin-top: 40px;
+    padding-left: 0;
     width: 100%;
 
     &::before {
@@ -28,6 +28,7 @@
   .section-tech {
     display: flex;
     justify-content: center;
+    margin: 0;
     padding: 10px 40px;
     width: 100%;
   }
@@ -58,9 +59,9 @@
   }
 
   .text-copyright {
+    align-self: center;
     color: $white;
     font-size: $text-small;
-    justify-content: center;
     padding: 10px;
   }
 }
