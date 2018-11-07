@@ -45,3 +45,27 @@
 .title-bold {
   font-weight: bold;
 }
+
+@media only screen and (max-width: 1024px) {
+  .content {
+    padding: 100px 69px;
+  }
+
+  .section-tech {
+    grid-template-columns: 1fr;
+  }
+
+  .tech {
+    align-self: center;
+    border-bottom: solid 2px $green;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:first-child {
+      border-right: none;
+      justify-self: center;
+    }
+  }
+}

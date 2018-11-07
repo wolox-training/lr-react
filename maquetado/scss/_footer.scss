@@ -17,3 +17,19 @@
   align-self: flex-end;
   color: $white;
 }
+
+@media only screen and (max-width: 1024px) {
+  .logo-footer {
+    height: 40px;
+  }
+
+  .text-footer {
+    font-size: $text-medium;
+  }
+
+  .text-copyright {
+    align-self: center;
+    font-size: $text-small;
+    margin: 10px 0;
+  }
+}

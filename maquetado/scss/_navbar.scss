@@ -19,3 +19,9 @@
 .title-navbar {
   font-size: $text-big;
 }
+
+@media only screen and (max-width: 1024px) {
+  .title-navbar {
+    display: none;
+  }
+}
