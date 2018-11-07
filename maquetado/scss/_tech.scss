@@ -10,30 +10,25 @@
 }
 
 .section-tech {
-  display: flex;
-  flex-direction: row;
-  flex-flow: wrap;
-  justify-content: space-between;
-  margin: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 0fr);
+  justify-content: center;
+}
+
+.tech:first-child {
+  border-right: solid 2px $green;
+  grid-row: 1 / 3;
+  height: 100%;
+  justify-content: center;
 }
 
 .tech {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: auto 0;
   padding: 14px;
   text-align: center;
   width: 200px;
-
-  &::before {
-    bottom: 5px;
-    content: '';
-    height: 100%;
-    position: absolute;
-    right: 7px;
-    width: 100%;
-  }
 }
 
 .tech-title {
