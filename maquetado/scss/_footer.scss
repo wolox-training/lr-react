@@ -19,10 +19,6 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  .footer {
-    width: 100%;
-  }
-
   .logo-footer {
     height: 40px;
   }
@@ -34,6 +30,6 @@
   .text-copyright {
     align-self: center;
     font-size: $text-small;
-    padding: 10px;
+    margin: 10px 0;
   }
 }
