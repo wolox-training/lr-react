@@ -5,6 +5,7 @@
   height: $title-decoration-height;
   padding-left: 52px;
   position: relative;
+  width: 100%;
 
   &::before {
     content: url(./assets/triangle.svg);
