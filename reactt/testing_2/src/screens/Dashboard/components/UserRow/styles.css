@@ -1,0 +1,17 @@
+.user-row {
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: 30px;
+  width: 300px;
+}
+
+.toggle {
+  width: 100px;
+}
+
+.toggle-off {
+  border: 2px solid red;
+}

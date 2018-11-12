@@ -1,0 +1,42 @@
+@import 'variables/variables';
+@import 'variables/colors';
+
+.container {
+  display: grid;
+  grid-gap: $text-medium;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 100px auto $text-medium;
+  max-width: 100%;
+  padding: 0 $text-medium;
+  width: $size-content;
+}
+
+.no-data {
+  align-items: center;
+  color: $dusty-grey;
+  display: flex;
+  height: 62vh;
+  justify-content: center;
+}
+
+.title {
+  color: $dusty-grey;
+  font-size: 70px;
+  left: 0;
+  margin-top: $text-medium;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}

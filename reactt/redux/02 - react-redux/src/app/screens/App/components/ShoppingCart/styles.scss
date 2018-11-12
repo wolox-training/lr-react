@@ -1,0 +1,52 @@
+@import 'variables/colors';
+@import 'variables/variables';
+
+.container {
+  background-color: $white;
+  border: 1px solid $dove-grey;
+  border-radius: 4px;
+  bottom: 70px;
+  box-shadow: 1px 2px 2px $shadow-color-black;
+  max-width: 100%;
+  position: fixed;
+  right: 60px;
+  transform: scale(0, 0);
+  transform-origin: 100% 100%;
+  transition: transform $transition-duration $transition-function;
+  width: 350px;
+  z-index: 3;
+
+  &.open {
+    transform: scale(1, 1);
+  }
+}
+
+.content {
+  height: 265px;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: $text-small;
+}
+
+.button-cart {
+  border-radius: 50%;
+  bottom: $text-medium;
+  box-shadow: 1px 2px 2px $shadow-color-black;
+  font-size: $text-big;
+  padding: $text-small 14px;
+  position: fixed;
+  right: $text-medium;
+}
+
+.title {
+  border-bottom: 1px solid $dove-grey;
+  display: block;
+  font-size: $text-big;
+  font-weight: bold;
+  padding: $text-small;
+}
+
+.total {
+  border-bottom: none;
+  border-top: 1px solid $dove-grey;
+}
