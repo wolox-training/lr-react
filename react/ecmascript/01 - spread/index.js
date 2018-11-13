@@ -29,7 +29,6 @@ export function reverseMerge(a, b) {
 }
 
 export function filterAttribs(expect) {
-  const x = { c: expect.c};
-  const y = { c: expect.c, d: expect.d, e: expect.e };
-  return expect, x, y;
+  const { a, b, ...c} = expect;
+  return c;
 }
