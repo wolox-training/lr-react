@@ -4,11 +4,10 @@ export function min(expect, ...c) {
   if (expect === undefined) {
     return expect;
   } else {
-      if (isArray(expect) === false) {
+      if (!isArray(expect)) {
         return Math.min(expect, ...c);  
       } else {  
-        const [a, b] = expect;
-        return Math.min(a, b);
+        return Math.min(...expect);
       }
   }
 }
@@ -24,8 +23,7 @@ export function copy(example) {
 }
 
 export function reverseMerge(a, b) {
-  const c = b.concat( a );
-  return c;
+  return b.concat( a );
 }
 
 export function filterAttribs(expect) {
