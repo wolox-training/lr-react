@@ -1,0 +1,29 @@
+@import 'variables/variables';
+@import 'variables/colors';
+
+.input {
+  border: 1px solid $dusty-grey;
+  border-radius: 4px;
+  grid-column: span 3;
+  justify-self: center;
+  padding: 8px $text-small;
+  transition: box-shadow $transition-duration $transition-function;
+  width: 220px;
+
+  &:focus,
+  &:hover {
+    box-shadow: 1px 2px 2px $shadow-color-black;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .input {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .input {
+    grid-column: span 1;
+  }
+}

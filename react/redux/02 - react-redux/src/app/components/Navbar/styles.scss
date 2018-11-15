@@ -1,0 +1,30 @@
+@import 'variables/colors';
+@import 'variables/variables';
+
+.nav {
+  align-items: center;
+  background-color: $white;
+  box-shadow: 0 4px 8px $shadow-color-black;
+  display: flex;
+  height: $nav-height;
+  justify-content: space-between;
+  padding: 0 $text-medium;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.nav-image {
+  height: $nav-logo-height;
+}
+
+.nav-title {
+  font-size: $text-big;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-title {
+    display: none;
+  }
+}

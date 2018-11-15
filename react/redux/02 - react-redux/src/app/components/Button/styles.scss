@@ -1,0 +1,48 @@
+@import 'variables/variables';
+@import 'variables/colors';
+
+.button {
+  border: 2px solid $blue;
+  border-radius: 4px;
+  color: $blue;
+  display: block;
+  font-weight: bold;
+  margin: 40px auto 0;
+  overflow: hidden;
+  padding: 8px $text-medium;
+  position: relative;
+  text-transform: uppercase;
+  transition: color $transition-duration $transition-function;
+  z-index: 1;
+
+  &::after {
+    background: $blue;
+    content: '';
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(25deg);
+    transition: all $transition-duration $transition-function;
+    width: 120%;
+    will-change: height;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: $white;
+
+    &::after {
+      height: 280%;
+    }
+  }
+}
+
+.danger {
+  border-color: $red;
+  color: $red;
+
+  &::after {
+    background: $red;
+  }
+}

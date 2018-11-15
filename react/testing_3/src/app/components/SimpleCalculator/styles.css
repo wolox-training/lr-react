@@ -1,0 +1,30 @@
+.simple-calculator-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.simple-calculator {
+  width: 250px;
+}
+
+.value-title {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.calculator-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.calculator-button {
+  background: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100px;
+}
+
+.calculator-button:first-child {
+  margin-right: 50px;
+}
