@@ -7,11 +7,11 @@ export function min(expect, ...c) {
   return isArray(expect) ? Math.min(...expect) : Math.min(expect, ...c);
 }
 
-export function copy(...example) {
- if (example.length === 1 && !isArray(example[0])) {
-   return Object.assign({}, example[0]);
- }
- return Object.assign([], example[0]);
+export function copy(example) {
+  if (isArray(example)) {
+    return [...example];
+  }
+  return {...example};
 }
 
 export function reverseMerge(a, b) {

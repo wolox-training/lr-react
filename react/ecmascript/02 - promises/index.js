@@ -14,5 +14,5 @@ export function delay(expect) {
    }
 
 export function asyncDelay(a) {
-        return new Promise((resolve) => { resolve(a); });
+        return delay(a);
 }
