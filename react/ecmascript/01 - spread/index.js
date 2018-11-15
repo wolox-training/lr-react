@@ -3,23 +3,15 @@ import { isArray } from './utils';
 export function min(expect, ...c) {
   if (expect === undefined) {
     return expect;
-  } else {
-      if (!isArray(expect)) {
-        return Math.min(expect, ...c);  
-      } else {  
-        return Math.min(...expect);
-      }
-  }
+  } 
+  return isArray(expect) ? Math.min(...expect) : Math.min(expect, ...c);
 }
 
 export function copy(example) {
-  if (isArray(example) === false){
-    example = { a: 1, b: 2 };
-    return example;
-  } else {
-    example = [ ];
-    return example;
-  } 
+  if (isArray(example)) {
+    return [...example];
+  }
+  return {...example};
 }
 
 export function reverseMerge(a, b) {
