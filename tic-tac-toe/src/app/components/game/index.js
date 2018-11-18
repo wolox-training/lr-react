@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Board from '../board';
-import { Constants } from '../../../constants';
+import { lines } from '../../../constants';
 
 class Game extends Component {
   state = {
@@ -11,8 +11,8 @@ class Game extends Component {
   };
 
   calculateWinner = squares => {
-    for (let i = 0; i < Constants.length; i += 1) {
-      const [a, b, c] = Constants[i];
+    for (let i = 0; i < lines.length; i += 1) {
+      const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
@@ -23,8 +23,7 @@ class Game extends Component {
   handleClick = i => {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
-    const squares = current.squares.slice();
-    console.log(squares);
+    const squares = [...current.squares];
     if (this.calculateWinner(squares) || squares[i]) {
       return;
     }
