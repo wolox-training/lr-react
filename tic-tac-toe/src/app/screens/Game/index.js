@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
 import { lines } from '../../../constants';
+import { clickprueba } from '../../../Game/actions';
 
 class Game extends Component {
   state = {
@@ -27,11 +29,11 @@ class Game extends Component {
     if (this.calculateWinner(squares)) {
       return;
     }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = this.props.xIsNext ? 'X' : 'O';
     this.setState({
       history: [...history, { squares }],
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
+      xIsNext: !this.props.xIsNext
     });
   };
 
@@ -44,7 +46,9 @@ class Game extends Component {
 
   render() {
     const history = this.state.history;
+    console.log(this.props.dispatch(clickprueba(history.length)));
     const current = history[this.state.stepNumber];
+    console.log(current);
     const winner = this.calculateWinner(current.squares);
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move # ${move}` : `Go to game start`;
@@ -54,7 +58,7 @@ class Game extends Component {
         </li>
       );
     });
-    const status = winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+    const status = winner ? `Winner: ${winner}` : `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
 
     return (
       <div className="game">
@@ -70,4 +74,9 @@ class Game extends Component {
   }
 }
 
-export default Game;
+const mapStateToProps = state => ({
+  stepNumber: state.stepNumber,
+  xIsNext: state.xIsNext
+});
+
+export default connect(mapStateToProps)(Game);
