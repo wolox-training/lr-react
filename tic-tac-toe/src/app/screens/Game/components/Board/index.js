@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Square from '../square';
+import Square from '../Board/components/Square';
 
 class Board extends Component {
   renderSquare = i => <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;

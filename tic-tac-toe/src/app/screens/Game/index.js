@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Board from '../board';
+import Board from '../Game/components/Board';
 import { lines } from '../../../constants';
 
 class Game extends Component {
@@ -35,7 +35,7 @@ class Game extends Component {
     });
   };
 
-  stepNumber = step => {
+  jumpTo = step => {
     this.setState({
       stepNumber: step,
       xIsNext: step % 2 === 0
