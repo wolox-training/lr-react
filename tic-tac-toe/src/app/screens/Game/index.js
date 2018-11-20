@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
@@ -7,9 +8,7 @@ import { clickprueba } from '../../../Game/actions';
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(9).fill(null) }],
-    stepNumber: 0,
-    xIsNext: true
+    history: [{ squares: Array(9).fill(null) }]
   };
 
   calculateWinner = squares => {
@@ -31,10 +30,9 @@ class Game extends Component {
     }
     squares[i] = this.props.xIsNext ? 'X' : 'O';
     this.setState({
-      history: [...history, { squares }],
-      stepNumber: history.length,
-      xIsNext: !this.props.xIsNext
+      history: [...history, { squares }]
     });
+    this.props.dispatch(clickprueba(history.length));
   };
 
   jumpTo = step => {
@@ -46,9 +44,7 @@ class Game extends Component {
 
   render() {
     const history = this.state.history;
-    console.log(this.props.dispatch(clickprueba(history.length)));
-    const current = history[this.state.stepNumber];
-    console.log(current);
+    const current = history[this.props.stepNumber];
     const winner = this.calculateWinner(current.squares);
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move # ${move}` : `Go to game start`;
@@ -78,5 +74,10 @@ const mapStateToProps = state => ({
   stepNumber: state.stepNumber,
   xIsNext: state.xIsNext
 });
+
+Game.propTypes = {
+  xIsNext: PropTypes.bool,
+  stepNumber: PropTypes.number.isRequired
+};
 
 export default connect(mapStateToProps)(Game);
