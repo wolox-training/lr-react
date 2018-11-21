@@ -40,6 +40,7 @@ class Game extends Component {
       stepNumber: step,
       xIsNext: step % 2 === 0
     });
+    this.props.dispatch(clickprueba(step));
   };
 
   render() {
