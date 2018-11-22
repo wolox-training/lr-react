@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
 import { lines } from '../../../constants';
-import { clickprueba } from '../../../Game/actions';
+import { clickprueba } from '../../../redux/Game/actions';
 
 class Game extends Component {
   state = {
