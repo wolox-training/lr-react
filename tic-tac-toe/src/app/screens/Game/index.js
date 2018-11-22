@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
-import { lines } from '../../../constants';
+//import { lines } from '../../../constants';
+import getBookDetail from '../../../services/BookService';
 import { clickprueba } from '../../../Game/actions';
 
 class Game extends Component {
@@ -12,8 +13,9 @@ class Game extends Component {
   };
 
   calculateWinner = squares => {
-    for (let i = 0; i < lines.length; i += 1) {
-      const [a, b, c] = lines[i];
+    console.log(getBookDetail);
+    for (let i = 0; i < getBookDetail.length; i += 1) {
+      const [a, b, c] = getBookDetail[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
