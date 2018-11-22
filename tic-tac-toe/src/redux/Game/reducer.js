@@ -7,7 +7,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actions.CLICK_PRUEBA:
+    case actions.CLICK_STEP_NUMBER:
       return {
         stepNumber: action.payload.stepNumber,
         xIsNext: !state.xIsNext
