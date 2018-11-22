@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
-//import { lines } from '../../../constants';
+import { lines } from '../../../constants';
 import getBookDetail from '../../../services/BookService';
 import { clickprueba } from '../../../Game/actions';
 
@@ -12,15 +12,18 @@ class Game extends Component {
     history: [{ squares: Array(9).fill(null) }]
   };
 
-  calculateWinner = squares => {
-    console.log(getBookDetail);
-    for (let i = 0; i < getBookDetail.length; i += 1) {
-      const [a, b, c] = getBookDetail[i];
+  calculateWinner = async squares => {
+    const test = await getBookDetail();
+    let resp = null;
+    if (!test) return resp;
+    for (let i = 0; i < test.data.length; i += 1) {
+      const [a, b, c] = test.data[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
+        resp = squares[a];
+        return;
       }
+      return resp;
     }
-    return null;
   };
 
   handleClick = i => {
@@ -49,6 +52,7 @@ class Game extends Component {
     const history = this.state.history;
     const current = history[this.props.stepNumber];
     const winner = this.calculateWinner(current.squares);
+    console.log(winner);
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move # ${move}` : `Go to game start`;
       return (

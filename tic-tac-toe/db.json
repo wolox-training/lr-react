@@ -1,21 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "win": [
     [0, 1, 2], 
     [3, 4, 5], 
@@ -25,6 +8,6 @@
     [2, 5, 8], 
     [0, 4, 8], 
     [2, 4, 6]
-]
+  ]
 }
 

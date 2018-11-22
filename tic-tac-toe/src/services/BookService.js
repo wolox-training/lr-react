@@ -1,5 +1,3 @@
 import api from '../config/api';
 
-export default {
-  getBookDetail: win => api.get({ win })
-};
+export default getBookDetail => api.get('http://localhost:3000/win');
