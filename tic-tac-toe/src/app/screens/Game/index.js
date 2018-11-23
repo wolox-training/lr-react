@@ -4,26 +4,30 @@ import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
 import { lines } from '../../../constants';
-import getBookDetail from '../../../services/BookService';
+import getLines from '../../../services/BookService';
 import { clickprueba } from '../../../Game/actions';
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(9).fill(null) }]
+    history: [{ squares: Array(9).fill(null) }],
+    tenant: []
   };
 
-  calculateWinner = async squares => {
-    const test = await getBookDetail();
-    let resp = null;
-    if (!test) return resp;
-    for (let i = 0; i < test.data.length; i += 1) {
-      const [a, b, c] = test.data[i];
+  componentDidMount() {
+    fetch('http://localhost:3000/win')
+      .then(result => result.json())
+      .then(tenant => this.setState({ tenant }));
+  }
+
+  calculateWinner = squares => {
+    const {tenant} = this.state;
+    for (let i = 0; i < tenant.length; i += 1) {
+      const [a, b, c] = tenant[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        resp = squares[a];
-        return;
+        return squares[a];
       }
-      return resp;
     }
+    return null;
   };
 
   handleClick = i => {
@@ -52,7 +56,6 @@ class Game extends Component {
     const history = this.state.history;
     const current = history[this.props.stepNumber];
     const winner = this.calculateWinner(current.squares);
-    console.log(winner);
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move # ${move}` : `Go to game start`;
       return (
