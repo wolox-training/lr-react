@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
-import { lines } from '../../../constants';
+//import { lines } from '../../../constants';
 import getLines from '../../../services/BookService';
-import { clickprueba } from '../../../Game/actions';
+import { clickStepNumber } from '../../../redux/Game/actions';
 
 class Game extends Component {
   state = {
@@ -41,7 +41,7 @@ class Game extends Component {
     this.setState({
       history: [...history, { squares }]
     });
-    this.props.dispatch(clickprueba(history.length));
+    this.props.dispatch(clickStepNumber(history.length));
   };
 
   jumpTo = step => {
@@ -49,7 +49,7 @@ class Game extends Component {
       stepNumber: step,
       xIsNext: step % 2 === 0
     });
-    this.props.dispatch(clickprueba(step));
+    this.props.dispatch(clickStepNumber(step));
   };
 
   render() {
