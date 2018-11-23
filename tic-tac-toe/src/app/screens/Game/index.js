@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
-//import { lines } from '../../../constants';
 import getLines from '../../../services/BookService';
 import { clickStepNumber } from '../../../redux/Game/actions';
 
@@ -20,7 +19,7 @@ class Game extends Component {
   }
 
   calculateWinner = squares => {
-    const {tenant} = this.state;
+    const { tenant } = this.state;
     for (let i = 0; i < tenant.length; i += 1) {
       const [a, b, c] = tenant[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
