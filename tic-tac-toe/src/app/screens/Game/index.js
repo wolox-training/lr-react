@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
-import getLines from '../../../services/BookService';
+import { getLines } from '../../../services/BookService';
 import { clickStepNumber } from '../../../redux/Game/actions';
 
 class Game extends Component {
