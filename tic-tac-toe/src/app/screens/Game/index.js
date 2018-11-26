@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
 import { lines } from '../../../constants';
+import { clickStepNumber } from '../../../redux/Game/actions';
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(9).fill(null) }],
-    stepNumber: 0,
-    xIsNext: true
+    history: [{ squares: Array(9).fill(null) }]
   };
 
   calculateWinner = squares => {
@@ -27,24 +28,23 @@ class Game extends Component {
     if (this.calculateWinner(squares)) {
       return;
     }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = this.props.xIsNext ? 'X' : 'O';
     this.setState({
-      history: [...history, { squares }],
-      stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
+      history: [...history, { squares }]
     });
+    this.props.dispatch(clickStepNumber(history.length));
   };
 
   jumpTo = step => {
     this.setState({
-      stepNumber: step,
       xIsNext: step % 2 === 0
     });
+    this.props.dispatch(clickStepNumber(step));
   };
 
   render() {
     const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const current = history[this.props.stepNumber];
     const winner = this.calculateWinner(current.squares);
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move # ${move}` : `Go to game start`;
@@ -54,7 +54,7 @@ class Game extends Component {
         </li>
       );
     });
-    const status = winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+    const status = winner ? `Winner: ${winner}` : `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
 
     return (
       <div className="game">
@@ -70,4 +70,14 @@ class Game extends Component {
   }
 }
 
-export default Game;
+const mapStateToProps = state => ({
+  stepNumber: state.stepNumber,
+  xIsNext: state.xIsNext
+});
+
+Game.propTypes = {
+  xIsNext: PropTypes.bool,
+  stepNumber: PropTypes.number.isRequired
+};
+
+export default connect(mapStateToProps)(Game);
