@@ -8,19 +8,16 @@ import { clickStepNumber } from '../../../redux/Game/actions';
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(9).fill(null) }],
+    history: [{ squares: Array(8).fill(null) }],
     constLine: []
   };
 
   componentDidMount() {
-    getLines()
-      .then(result => result)
-      .then(constLine => this.setState({ constLine }));
+    getLines().then(response => this.setState({ constLine: response.data }));
   }
 
   calculateWinner = squares => {
     const { constLine } = this.state;
-    console.log({ constLine });
     for (let i = 0; i < constLine.length; i += 1) {
       const [a, b, c] = constLine[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
