@@ -3,17 +3,23 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
-import { lines } from '../../../constants';
+import { getLines } from '../../../services/BookService';
 import { clickStepNumber } from '../../../redux/Game/actions';
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(9).fill(null) }]
+    history: [{ squares: Array(8).fill(null) }],
+    constLine: []
   };
 
+  componentDidMount() {
+    getLines().then(response => this.setState({ constLine: response.data }));
+  }
+
   calculateWinner = squares => {
-    for (let i = 0; i < lines.length; i += 1) {
-      const [a, b, c] = lines[i];
+    const { constLine } = this.state;
+    for (let i = 0; i < constLine.length; i += 1) {
+      const [a, b, c] = constLine[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
