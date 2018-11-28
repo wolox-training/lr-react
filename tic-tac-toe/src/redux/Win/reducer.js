@@ -9,17 +9,17 @@ const reducer = (state = initialState, action) => {
     case actions.GET_LINES:
       return {
         ...state,
-        constLine: action.payload.constLine
+        constLine: action.payload
       };
     case actions.GET_LINES_SUCCESS:
       return {
         ...state,
-        constLine: action.payload.constLine
+        constLine: action.payload
       };
     case actions.GET_LINES_FAILURE:
       return {
         ...state,
-        constLine: action.payload.constLine
+        constLine: action.payload
       };
     default:
       return state;
