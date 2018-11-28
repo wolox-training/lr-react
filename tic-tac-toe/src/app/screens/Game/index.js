@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
-import { getLines } from '../../../services/GameService';
 import { clickStepNumber } from '../../../redux/Game/actions';
+import actionCreators from '../../../redux/Win/actions';
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(8).fill(null) }],
+    history: [{ squares: Array(9).fill(null) }],
     constLine: []
   };
 
   componentDidMount() {
-    getLines().then(response => this.setState({ constLine: response.data }));
+    this.props.dispatch(actionCreators.getLines());
   }
 
   calculateWinner = squares => {
@@ -76,9 +76,9 @@ class Game extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  stepNumber: state.stepNumber,
-  xIsNext: state.xIsNext
+const mapStateToProps = store => ({
+  stepNumber: store.stepNumber,
+  xIsNext: store.xIsNext
 });
 
 Game.propTypes = {
