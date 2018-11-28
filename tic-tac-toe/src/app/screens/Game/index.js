@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -59,17 +59,27 @@ class Game extends Component {
       );
     });
     const status = winner ? `Winner: ${winner}` : `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
-
+    const { constLineLoading, constLineError } = this.props;
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board squares={current.squares} onClick={this.handleClick} />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
-      </div>
+      <Fragment>
+        {constLineError ? (
+          <div>{constLineError}</div>
+        ) : (
+          <div className="game">
+            {constLineLoading ? (
+              <div>Cargando...</div>
+            ) : (
+              <div className="game-board">
+                <Board squares={current.squares} onClick={this.handleClick} />
+                <div className="game-info">
+                  <div>{status}</div>
+                  <ol>{moves}</ol>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </Fragment>
     );
   }
 }
@@ -77,12 +87,15 @@ class Game extends Component {
 const mapStateToProps = store => ({
   stepNumber: store.gameReducer.stepNumber,
   xIsNext: store.gameReducer.xIsNext,
-  constLine: store.lineReducer.constLine
+  constLine: store.lineReducer.constLine,
+  constLineLoading: store.lineReducer.constLineLoading,
+  constLineError: store.lineReducer.constLineError
 });
 
 Game.propTypes = {
   xIsNext: PropTypes.bool,
-  stepNumber: PropTypes.number.isRequired
+  stepNumber: PropTypes.number.isRequired,
+  constLine: PropTypes.number.isRequired
 };
 
 export default connect(mapStateToProps)(Game);

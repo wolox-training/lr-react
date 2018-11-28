@@ -1,7 +1,9 @@
 import { actions } from './actionsTypes';
 
 const initialState = {
-  constLine: []
+  constLine: [],
+  constLineLoading: false,
+  constLineError: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -9,17 +11,19 @@ const reducer = (state = initialState, action) => {
     case actions.GET_LINES:
       return {
         ...state,
-        constLine: action.payload
+        constLineLoading: action.payload
       };
     case actions.GET_LINES_SUCCESS:
       return {
         ...state,
+        constLineError: initialState.constLineError,
         constLine: action.payload
       };
     case actions.GET_LINES_FAILURE:
       return {
         ...state,
-        constLine: action.payload
+        constLine: initialState.constLine,
+        constLineError: action.payload
       };
     default:
       return state;
