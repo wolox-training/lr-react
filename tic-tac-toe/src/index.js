@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import Game from '../src/app/screens/Game';
 import './scss/index.scss';
 
+import Game from '../src/app/screens/Game';
 import reducer from '../src/redux/Game/reducer';
 
 const store = createStore(reducer);
