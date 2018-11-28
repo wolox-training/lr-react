@@ -8,8 +8,7 @@ import actionCreators from '../../../redux/Win/actions';
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(9).fill(null) }],
-    constLine: []
+    history: [{ squares: Array(9).fill(null) }]
   };
 
   componentDidMount() {
@@ -17,9 +16,8 @@ class Game extends Component {
   }
 
   calculateWinner = squares => {
-    const { constLine } = this.state;
-    for (let i = 0; i < constLine.length; i += 1) {
-      const [a, b, c] = constLine[i];
+    for (let i = 0; i < this.props.constLine.length; i += 1) {
+      const [a, b, c] = this.props.constLine[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
@@ -77,8 +75,9 @@ class Game extends Component {
 }
 
 const mapStateToProps = store => ({
-  stepNumber: store.stepNumber,
-  xIsNext: store.xIsNext
+  stepNumber: store.gameReducer.stepNumber,
+  xIsNext: store.gameReducer.xIsNext,
+  constLine: store.lineReducer.constLine
 });
 
 Game.propTypes = {

@@ -4,12 +4,11 @@ import { actions } from './actionsTypes';
 
 const actionCreators = {
   getLines: () => async dispatch => {
-    dispatch({ type: actions.GET_LINES });
     const response = await getLines();
     if (response.ok) {
       dispatch({
         type: actions.GET_LINES_SUCCESS,
-        payload: response.data
+        payload: { constLine: response.data }
       });
     } else {
       dispatch({

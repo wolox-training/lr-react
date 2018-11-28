@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 import gameReducer from './Game/reducer';
@@ -9,6 +9,7 @@ const reducers = {
   lineReducer
 };
 
-const reducer = combineReducers(reducers);
-const store = createStore(reducer, applyMiddleware(thunk));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line no-underscore-dangle
+const store = createStore(combineReducers(reducers), composeEnhancers(applyMiddleware(thunk)));
+
 export default store;
