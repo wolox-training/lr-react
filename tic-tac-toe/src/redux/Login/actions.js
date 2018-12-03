@@ -6,6 +6,7 @@ const actionLogin = {
   auth: (mail, password) => async dispatch => {
     dispatch({ type: actions.GET_LOGIN, payload: true });
     const response = await getLogin(mail, password);
+    console.log(response.data);
     if (response.ok) {
       dispatch({
         type: actions.GET_LOGIN_SUCCESS,
@@ -17,7 +18,6 @@ const actionLogin = {
         payload: response.problem
       });
     }
-    dispatch({ type: actions.GET_LOGIN, payload: false });
   }
 };
 

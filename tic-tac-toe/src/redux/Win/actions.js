@@ -17,7 +17,6 @@ const actionCreators = {
         payload: response.problem
       });
     }
-    dispatch({ type: actions.GET_LINES, payload: false });
   }
 };
 

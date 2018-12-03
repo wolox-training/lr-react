@@ -17,13 +17,15 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loginError: initialState.loginError,
-        auth: action.payload
+        auth: action.payload,
+        message: action.message
       };
     case actions.GET_LOGIN_FAILURE:
       return {
         ...state,
         auth: initialState.auth,
-        loginError: action.payload
+        loginError: action.payload,
+        message: action.message
       };
     default:
       return state;
