@@ -10,6 +10,6 @@
     [2, 4, 6]
   ],
   "users":[
-    {"mail": "leonardo.romero@wolox.co", "password": "123456789" }
+    {"mail": "leonardo.romero@wolox.co", "password": "123456789", "token": "123drlsdrm74" }
   ]
 }

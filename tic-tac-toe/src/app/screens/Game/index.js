@@ -95,7 +95,9 @@ const mapStateToProps = store => ({
 Game.propTypes = {
   xIsNext: PropTypes.bool,
   stepNumber: PropTypes.number.isRequired,
-  constLine: PropTypes.number.isRequired
+  constLine: PropTypes.number.isRequired,
+  constLineLoading: PropTypes.bool,
+  constLineError: PropTypes.bool
 };
 
 export default connect(mapStateToProps)(Game);

@@ -7,12 +7,8 @@ import { ConnectedRouter } from 'connected-react-router';
 import './scss/index.scss';
 
 import Game from './app/screens/Game';
-import Login from './app/screens/Login/layout';
+import Login from './app/screens/Login';
 import store, { history } from './redux/store';
-
-store.subscribe(() => {
-  //console.log(store.getState());
-});
 
 ReactDOM.render(
   <Provider store={store}>

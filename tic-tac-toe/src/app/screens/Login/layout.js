@@ -11,7 +11,7 @@ class Login extends Component {
     return (
       <form onSubmit={handleSubmit}>
         <Field
-          name="user"
+          name="mail"
           component={customInput}
           type="mail"
           label="User"
