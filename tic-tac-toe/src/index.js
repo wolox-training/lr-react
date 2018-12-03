@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import './scss/index.scss';
 
-import Game from '../src/app/screens/Game';
-import reducer from '../src/redux/Game/reducer';
-
-const store = createStore(reducer);
+import Game from './app/screens/Game';
+import store from './redux/store';
 
 ReactDOM.render(
   <Provider store={store}>

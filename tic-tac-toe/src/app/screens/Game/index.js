@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Board from '../Game/components/Board';
-import { getLines } from '../../../services/BookService';
 import { clickStepNumber } from '../../../redux/Game/actions';
+import actionCreators from '../../../redux/Win/actions';
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(8).fill(null) }],
-    constLine: []
+    history: [{ squares: Array(9).fill(null) }]
   };
 
   componentDidMount() {
-    getLines().then(response => this.setState({ constLine: response.data }));
+    this.props.dispatch(actionCreators.getLines());
   }
 
   calculateWinner = squares => {
-    const { constLine } = this.state;
-    for (let i = 0; i < constLine.length; i += 1) {
-      const [a, b, c] = constLine[i];
+    for (let i = 0; i < this.props.constLine.length; i += 1) {
+      const [a, b, c] = this.props.constLine[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
@@ -61,29 +59,38 @@ class Game extends Component {
       );
     });
     const status = winner ? `Winner: ${winner}` : `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
-
+    const { constLineLoading } = this.props;
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board squares={current.squares} onClick={this.handleClick} />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
-      </div>
+      <Fragment>
+        {constLineLoading ? (
+          <div>Cargando...</div>
+        ) : (
+          <div className="game-board">
+            <Board squares={current.squares} onClick={this.handleClick} />
+            <div className="game-info">
+              <div>{status}</div>
+              <ol>{moves}</ol>
+            </div>
+          </div>
+        )}
+      </Fragment>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  stepNumber: state.stepNumber,
-  xIsNext: state.xIsNext
+const mapStateToProps = store => ({
+  stepNumber: store.gameReducer.stepNumber,
+  xIsNext: store.gameReducer.xIsNext,
+  constLine: store.lineReducer.constLine,
+  constLineLoading: store.lineReducer.constLineLoading,
+  constLineError: store.lineReducer.constLineError
 });
 
 Game.propTypes = {
   xIsNext: PropTypes.bool,
-  stepNumber: PropTypes.number.isRequired
+  stepNumber: PropTypes.number.isRequired,
+  constLine: PropTypes.number.isRequired,
+  constLineLoading: PropTypes.bool
 };
 
 export default connect(mapStateToProps)(Game);
