@@ -17,13 +17,15 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         constLineError: initialState.constLineError,
-        constLine: action.payload
+        constLine: action.payload,
+        constLineLoading: false
       };
     case actions.GET_LINES_FAILURE:
       return {
         ...state,
         constLine: initialState.constLine,
-        constLineError: action.payload
+        constLineError: action.payload,
+        constLineLoading: false
       };
     default:
       return state;

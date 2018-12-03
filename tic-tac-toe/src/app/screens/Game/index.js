@@ -59,24 +59,18 @@ class Game extends Component {
       );
     });
     const status = winner ? `Winner: ${winner}` : `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
-    const { constLineLoading, constLineError } = this.props;
+    const { constLineLoading } = this.props;
     return (
       <Fragment>
-        {constLineError ? (
-          <div>{constLineError}</div>
+        {constLineLoading ? (
+          <div>Cargando...</div>
         ) : (
-          <div className="game">
-            {constLineLoading ? (
-              <div>Cargando...</div>
-            ) : (
-              <div className="game-board">
-                <Board squares={current.squares} onClick={this.handleClick} />
-                <div className="game-info">
-                  <div>{status}</div>
-                  <ol>{moves}</ol>
-                </div>
-              </div>
-            )}
+          <div className="game-board">
+            <Board squares={current.squares} onClick={this.handleClick} />
+            <div className="game-info">
+              <div>{status}</div>
+              <ol>{moves}</ol>
+            </div>
           </div>
         )}
       </Fragment>
@@ -95,7 +89,8 @@ const mapStateToProps = store => ({
 Game.propTypes = {
   xIsNext: PropTypes.bool,
   stepNumber: PropTypes.number.isRequired,
-  constLine: PropTypes.number.isRequired
+  constLine: PropTypes.number.isRequired,
+  constLineLoading: PropTypes.bool
 };
 
 export default connect(mapStateToProps)(Game);
