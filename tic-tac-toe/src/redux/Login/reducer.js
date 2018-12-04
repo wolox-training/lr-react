@@ -3,8 +3,7 @@ import { actions } from './actionsTypes';
 const initialState = {
   auth: [],
   loginLoading: false,
-  loginError: null,
-  messageError: null
+  loginError: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,7 +11,8 @@ const reducer = (state = initialState, action) => {
     case actions.GET_LOGIN:
       return {
         ...state,
-        loginLoading: action.payload
+        loginLoading: action.payload,
+        token: action.payload
       };
     case actions.GET_LOGIN_SUCCESS:
       return {
