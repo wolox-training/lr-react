@@ -11,8 +11,13 @@ class LoginContainer extends Component {
     this.props.dispatch(actionLogin.auth(values.mail, values.password));
   };
   render() {
+    //{messageError && <Error message={messageError} />}
     return <Login onSubmit={this.submit} />;
   }
 }
 
-export default connect()(LoginContainer);
+const mapStateToProps = store => ({
+  auth: store.loginReducer.auth
+});
+
+export default connect(mapStateToProps)(LoginContainer);

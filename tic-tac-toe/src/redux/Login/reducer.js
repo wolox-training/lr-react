@@ -1,9 +1,10 @@
 import { actions } from './actionsTypes';
 
 const initialState = {
-  auth: false,
+  auth: [],
   loginLoading: false,
-  loginError: null
+  loginError: null,
+  messageError: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,14 +19,14 @@ const reducer = (state = initialState, action) => {
         ...state,
         loginError: initialState.loginError,
         auth: action.payload,
-        message: action.message
+        loginLoading: false
       };
     case actions.GET_LOGIN_FAILURE:
       return {
         ...state,
         auth: initialState.auth,
         loginError: action.payload,
-        message: action.message
+        loginLoading: false
       };
     default:
       return state;
