@@ -13,14 +13,13 @@ const actionLogin = {
         type: actions.GET_LOGIN_SUCCESS,
         payload: response.data
       });
-      console.log(response.data);
-      if (!response.data.length || !localStorage.getItem('token') === '') {
-        dispatch(push('/'));
+      if (!response.data.length || localStorage.getItem('token')) {
         window.alert('Username or password is incorrect');
+        dispatch(push('/'));
       } else {
-        const token = response.data[0].token;
+        const [{ token }] = response.data;
         localStorage.setItem('token', token);
-        localStorage.getItem('token');
+        window.alert('Welcome to game');
         dispatch(push('/game'));
       }
     } else {

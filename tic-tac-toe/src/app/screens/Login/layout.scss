@@ -12,9 +12,10 @@ form {
 }
 
 input {
+  border: none;
   border-bottom: solid 3px black;
   border-radius: 0;
-  border-width: 0;
+  margin-top: 10px;
 }
 input:not([type='checkbox']) + label {
   transition: all 0.2s;
@@ -33,6 +34,10 @@ input:not([type='checkbox']):focus + label,
   color: black;
   font-size: 12px;
   top: -12px;
+}
+
+.text-alert {
+  color: red;
 }
 
 .flex-row-reverse {
@@ -79,6 +84,7 @@ button[type='submit'] {
 button[type='submit'] {
   background-color: #00ADEE;
   color: white;
+  margin-top: 15px;
 }
 
 /* Validation styles */
