@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
 
-import './style.scss';
+import styles from '../layout.scss';
 
-export const customInput = props => {
-  const { label, input, meta } = props;
-  return (
-    <Fragment>
-      <label>{props.label}</label>
-      <input {...props.input} type={props.type} />
-      {meta.error && meta.touched && <div className="text-alert">{meta.error}</div>}
-    </Fragment>
-  );
-};
+export const customInput = ({ input, label, type, meta: { touched, error } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} type={type} />
+      {touched && error && <div className={styles.textAlert}>{error}</div>}
+    </div>
+  </div>
+);

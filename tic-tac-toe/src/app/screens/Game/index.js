@@ -13,10 +13,13 @@ class Game extends Component {
   };
 
   componentDidMount() {
+    this.props.dispatch(actionCreators.getLines());
+  }
+
+  componentDidUpdate() {
     if (!localStorage.getItem('token')) {
       this.props.dispatch(push('/'));
     }
-    this.props.dispatch(actionCreators.getLines());
   }
 
   calculateWinner = squares => {
