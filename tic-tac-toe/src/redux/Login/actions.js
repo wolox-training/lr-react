@@ -13,7 +13,6 @@ const actionLogin = {
         type: actions.GET_LOGIN_SUCCESS,
         payload: response.data
       });
-      console.log(response.data);
       if (!response.data.length || localStorage.getItem('token')) {
         dispatch(push('/'));
         window.alert('Username or password is incorrect');
