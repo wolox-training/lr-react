@@ -7,6 +7,7 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import './scss/index.scss';
 
+import NavBar from './app/screens/NavBar';
 import Game from './app/screens/Game';
 import Login from './app/screens/Login';
 import Logout from './app/screens/Logout';
@@ -25,7 +26,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div>
-        <Links />
+        {localStorage.getItem('token') ? <Links /> : null}
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/game" component={Game} />

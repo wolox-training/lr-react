@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 
 import Board from '../Game/components/Board';
 import { clickStepNumber } from '../../../redux/Game/actions';
@@ -12,6 +13,9 @@ class Game extends Component {
   };
 
   componentDidMount() {
+    if (!localStorage.getItem('token')) {
+      this.props.dispatch(push('/'));
+    }
     this.props.dispatch(actionCreators.getLines());
   }
 

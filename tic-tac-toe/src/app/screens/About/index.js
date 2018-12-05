@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 
 class About extends Component {
+  componentDidMount() {
+    if (!localStorage.getItem('token')) {
+      this.props.dispatch(push('/'));
+    }
+  }
+
   render() {
     return (
       <dii>
         <h1 className="titel-game">History TIC-TAC-TOE</h1>
         <p className="text-game">
-          <img className="img-game" alt="imagen-tic-tac-toe" src={"https://thumbs.gfycat.com/PoisedGrippingFox-size_restricted.gif"} />
+          <img
+            className="img-game"
+            alt="imagen-tic-tac-toe"
+            src={'https://thumbs.gfycat.com/PoisedGrippingFox-size_restricted.gif'}
+          />
           Games played on three-in-a-row boards can be traced back to ancient Egypt,[5] where such game boards
           have been found on roofing tiles dating from around 1300 BCE.[6] An early variation of tic-tac-toe
           was played in the Roman Empire, around the first century BC. It was called terni lapilli (three
@@ -32,8 +44,13 @@ class About extends Component {
         <h1 className="titel-game">Strategy</h1>
         <ol className="text-game">
           <li>Win: If the player has two in a row, they can place a third to get three in a row.</li>
-          <li>Block: If the opponent has two in a row, the player must play the third themselves to block the opponent.</li>
-          <li>ork: Create an opportunity where the player has two threats to win (two non-blocked lines of 2).</li>
+          <li>
+            Block: If the opponent has two in a row, the player must play the third themselves to block the
+            opponent.
+          </li>
+          <li>
+            ork: Create an opportunity where the player has two threats to win (two non-blocked lines of 2).
+          </li>
           <li>
             Blocking an opponent's fork: If there is only one possible fork for the opponent, the player
             should block it. Otherwise, the player should block any forks in any way that simultaneously
@@ -56,4 +73,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default connect()(About);

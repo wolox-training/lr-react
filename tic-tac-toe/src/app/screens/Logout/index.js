@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
 class Logout extends Component {
@@ -10,8 +11,8 @@ class Logout extends Component {
     }
   }
   render() {
-    return <dii>About</dii>;
+    return null;
   }
 }
 
-export default Logout;
+export default connect()(Logout);
