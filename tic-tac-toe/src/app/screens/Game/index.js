@@ -13,7 +13,7 @@ class Game extends Component {
   };
 
   componentDidMount() {
-    if (localStorage.getItem('token') === null) {
+    if (!localStorage.getItem('token')) {
       this.props.dispatch(push('/'));
     }
     this.props.dispatch(actionCreators.getLines());

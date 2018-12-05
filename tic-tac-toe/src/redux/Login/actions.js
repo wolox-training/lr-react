@@ -14,12 +14,11 @@ const actionLogin = {
         payload: response.data
       });
       if (!response.data.length || localStorage.getItem('token')) {
-        dispatch(push('/'));
         window.alert('Username or password is incorrect');
+        dispatch(push('/'));
       } else {
-        const token = response.data[0].token;
+        const [{ token }] = response.data;
         localStorage.setItem('token', token);
-        localStorage.getItem('token');
         dispatch(push('/game'));
       }
     } else {
