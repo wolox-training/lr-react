@@ -14,7 +14,7 @@ const actionLogin = {
         payload: response.data
       });
       console.log(response.data);
-      if (!response.data.length || !localStorage.getItem('token') === '') {
+      if (!response.data.length || localStorage.getItem('token')) {
         dispatch(push('/'));
         window.alert('Username or password is incorrect');
       } else {
