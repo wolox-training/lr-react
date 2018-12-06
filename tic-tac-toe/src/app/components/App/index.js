@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router';
-import { ConnectedRouter } from 'connected-react-router';
+import { ConnectedRouter, push } from 'connected-react-router';
 import { connect } from 'react-redux';
 
 import { history } from '../../../redux/store';
@@ -9,6 +9,11 @@ import Game from '../../screens/Game';
 import Login from '../../screens/Login';
 
 class App extends Component {
+  componentDidMount() {
+    if (!localStorage.getItem('token')) {
+      this.props.dispatch(push('/'));
+    }
+  }
   render() {
     return (
       <ConnectedRouter history={history}>
