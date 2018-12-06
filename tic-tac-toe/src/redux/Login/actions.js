@@ -14,12 +14,14 @@ const actionLogin = {
         payload: response.data
       });
       if (!response.data.length || localStorage.getItem('token')) {
-        window.alert('Username or password is incorrect');
+        // eslint-disable-next-line no-alert
+        alert('Username or password is incorrect');
         dispatch(push('/'));
       } else {
         const [{ token }] = response.data;
         localStorage.setItem('token', token);
-        window.alert('Welcome to game');
+        // eslint-disable-next-line no-alert
+        alert('Welcome to game');
         dispatch(push('/game'));
       }
     } else {

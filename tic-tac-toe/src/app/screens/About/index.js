@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
+
+import NavBar from '../../screens/NavBar';
 
 class About extends Component {
   componentDidMount() {
@@ -11,7 +13,8 @@ class About extends Component {
 
   render() {
     return (
-      <dii>
+      <Fragment>
+        <NavBar />
         <h1 className="titel-game">History TIC-TAC-TOE</h1>
         <p className="text-game">
           <img
@@ -68,7 +71,7 @@ class About extends Component {
           <li>Empty corner: The player plays in a corner square.</li>
           <li>Empty side: The player plays in a middle square on any of the 4 sides.</li>
         </ol>
-      </dii>
+      </Fragment>
     );
   }
 }
