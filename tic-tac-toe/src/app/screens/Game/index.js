@@ -17,7 +17,6 @@ class Game extends Component {
   }
 
   calculateWinner = squares => {
-    console.log(this.props.constLine);
     for (let i = 0; i < this.props.constLine.length; i += 1) {
       const [a, b, c] = this.props.constLine[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
