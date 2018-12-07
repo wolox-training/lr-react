@@ -11,7 +11,7 @@ import About from '../../screens/About';
 
 class App extends Component {
   componentDidMount() {
-    if (!localStorage.getItem('token')) {
+    if (!localStorage.getItem('token') || localStorage.getItem('token') !== '123drlsdrm74') {
       this.props.dispatch(push('/'));
     }
   }
