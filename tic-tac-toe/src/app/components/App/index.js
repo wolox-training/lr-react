@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router';
-import { ConnectedRouter, push } from 'connected-react-router';
+import { ConnectedRouter } from 'connected-react-router';
 import { connect } from 'react-redux';
 
 import { history } from '../../../redux/store';
 import '../../../scss/index.scss';
 import Game from '../../screens/Game';
 import Login from '../../screens/Login';
+import actionLogin from '../../../redux/Login/actions';
 
 class App extends Component {
   componentDidMount() {
-    if (!localStorage.getItem('token') || localStorage.getItem('token') !== '123drlsdrm74') {
-      this.props.dispatch(push('/'));
-    }
+    this.props.dispatch(actionLogin.token(localStorage.getItem('token')));
   }
   render() {
     return (
