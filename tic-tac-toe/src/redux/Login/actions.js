@@ -13,16 +13,18 @@ const actionLogin = {
         type: actions.GET_LOGIN_SUCCESS,
         payload: response.data
       });
-      if (!response.data.length || localStorage.getItem('token')) {
+      if (!response.data.length) {
         // eslint-disable-next-line no-alert
         alert('Username or password is incorrect');
         dispatch(push('/'));
       } else {
         const [{ token }] = response.data;
         localStorage.setItem('token', token);
-        // eslint-disable-next-line no-alert
-        alert('Welcome to game');
-        dispatch(push('/game'));
+        if (localStorage.getItem('token') && localStorage.getItem('token') === token) {
+          // eslint-disable-next-line no-alert
+          alert('Welcome to game');
+          dispatch(push('/game'));
+        }
       }
     } else {
       dispatch({
