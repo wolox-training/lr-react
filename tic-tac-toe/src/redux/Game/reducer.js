@@ -5,14 +5,17 @@ const initialState = {
   xIsNext: true
 };
 
-// Create a new effect decoupled from the state structure at all.
-const reducer = (state, action) => ({
-  ...state,
-  [action.stepNumber]: state[action.xIsNext] + action.payload
-});
-// Describe your reducer - without the switch
-const reducerDescription = {
-  'CLICK_STEP_NUMBER': reducer()
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actions.CLICK_STEP_NUMBER:
+      return {
+        ...state,
+        stepNumber: action.payload.stepNumber,
+        xIsNext: !state.xIsNext
+      };
+    default:
+      return state;
+  }
 };
-// Create it !
-const reducer = createReducer(initialState, reducerDescription);
+
+export default reducer;
