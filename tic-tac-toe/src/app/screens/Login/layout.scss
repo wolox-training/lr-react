@@ -21,10 +21,8 @@ input:not([type='checkbox']) + label {
 }
 
 input:not([type='checkbox']) + label {
-  color: gray;
   left: 0;
   pointer-events: none;
-  position: absolute;
   top: 0;
 }
 
