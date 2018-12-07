@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { connect } from 'react-redux';
@@ -7,11 +8,11 @@ import { history } from '../../../redux/store';
 import '../../../scss/index.scss';
 import Game from '../../screens/Game';
 import Login from '../../screens/Login';
-import actionLogin from '../../../redux/Login/actions';
+import actionsLogin from '../../../redux/Login/actions';
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(actionLogin.token(localStorage.getItem('token')));
+    this.props.checkToken(localStorage.getItem('token'));
   }
   render() {
     return (
@@ -25,4 +26,15 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+App.propTypes = {
+  checkToken: PropTypes.func.isRequired
+};
+
+const mapDispatchToProps = dispatch => ({
+  checkToken: userToken => dispatch(actionsLogin.token(userToken))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);

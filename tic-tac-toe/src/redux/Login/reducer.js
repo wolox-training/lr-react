@@ -4,7 +4,7 @@ const initialState = {
   auth: [],
   loginLoading: false,
   loginError: null,
-  userToke: false
+  userToke: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -31,12 +31,12 @@ const reducer = (state = initialState, action) => {
     case actions.GET_TOKEN_SUCCESS:
       return {
         ...state,
-        userToke: true
+        userToke: action.payload
       };
     case actions.GET_TOKEN_FAILURE:
       return {
         ...state,
-        userToke: false
+        userToke: initialState.userToke
       };
     default:
       return state;
