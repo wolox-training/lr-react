@@ -1,6 +1,6 @@
 import { push } from 'connected-react-router';
 
-import { getLogin } from '../../services/GameService';
+import { getLogin, getToken } from '../../services/GameService';
 
 import { actions } from './actionsTypes';
 
@@ -32,6 +32,24 @@ const actionLogin = {
         payload: response.problem
       });
     }
+  },
+  token: token => async dispatch => {
+    const responseToke = await getToken(token);
+    if (responseToke.ok) {
+      dispatch({
+        type: actions.GET_TOKEN_SUCCESS,
+        payload: responseToke.data
+      });
+      if (!responseToke.data.length) {
+        // eslint-disable-next-line no-alert
+        alert('The token is invalide');
+        dispatch(push('/'));
+      }
+    }
+    dispatch({
+      type: actions.GET_TOKEN_FAILURE,
+      payload: responseToke.problem
+    });
   }
 };
 
