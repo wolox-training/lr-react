@@ -13,18 +13,15 @@ const actionLogin = {
         type: actions.GET_LOGIN_SUCCESS,
         payload: response.data
       });
-      if (!response.data.length) {
-        // eslint-disable-next-line no-alert
-        alert('Username or password is incorrect');
-        dispatch(push('/'));
-      } else {
+      if (response.data.length) {
         const [{ token }] = response.data;
         localStorage.setItem('token', token);
-        if (localStorage.getItem('token') && localStorage.getItem('token') === token) {
-          // eslint-disable-next-line no-alert
-          alert('Welcome to game');
-          dispatch(push('/game'));
-        }
+        // eslint-disable-next-line no-alert
+        alert('Welcome to game');
+        dispatch(push('/game'));
+      } else {
+        // eslint-disable-next-line no-alert
+        alert('Username or password is incorrect');
       }
     } else {
       dispatch({
@@ -34,6 +31,7 @@ const actionLogin = {
     }
   },
   token: token => async dispatch => {
+    dispatch({ type: actions.GET_TOKEN, payload: true });
     const responseToke = await getToken(token);
     if (responseToke.ok) {
       dispatch({
@@ -43,13 +41,13 @@ const actionLogin = {
       if (!responseToke.data.length) {
         // eslint-disable-next-line no-alert
         alert('The token is invalide');
-        dispatch(push('/'));
       }
+    } else {
+      dispatch({
+        type: actions.GET_TOKEN_FAILURE,
+        payload: responseToke.problem
+      });
     }
-    dispatch({
-      type: actions.GET_TOKEN_FAILURE,
-      payload: responseToke.problem
-    });
   }
 };
 

@@ -1,40 +1,48 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Route, Switch } from 'react-router';
+import React, { Component, Fragment } from 'react';
+import { Route, Redirect } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { history } from '../../../redux/store';
 import '../../../scss/index.scss';
 import Game from '../../screens/Game';
 import Login from '../../screens/Login';
-import actionsLogin from '../../../redux/Login/actions';
+import actionLogin from '../../../redux/Login/actions';
 
 class App extends Component {
   componentDidMount() {
-    this.props.checkToken(localStorage.getItem('token'));
+    this.props.dispatch(actionLogin.token(localStorage.getItem('token')));
   }
   render() {
+    const { tokenLoading } = this.props;
     return (
       <ConnectedRouter history={history}>
-        <Switch>
+        <Fragment>
           <Route exact path="/" component={Login} />
           <Route path="/game" component={Game} />
-        </Switch>
+          {tokenLoading ? (
+            <div>Cargando... login</div>
+          ) : (
+            <div>
+              <Route
+                render={() => (this.props.userToke.length ? <Redirect to="/game" /> : <Redirect to="/" />)}
+              />
+            </div>
+          )}
+        </Fragment>
       </ConnectedRouter>
     );
   }
 }
-
-App.propTypes = {
-  checkToken: PropTypes.func.isRequired
-};
-
-const mapDispatchToProps = dispatch => ({
-  checkToken: userToken => dispatch(actionsLogin.token(userToken))
+const mapStateToProps = store => ({
+  userToke: store.loginReducer.userToke,
+  tokenLoading: store.loginReducer.tokenLoading
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(App);
+App.propTypes = {
+  userToke: PropTypes.number,
+  tokenLoading: PropTypes.bool
+};
+
+export default connect(mapStateToProps)(App);

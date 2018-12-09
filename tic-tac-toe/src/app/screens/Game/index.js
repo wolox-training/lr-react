@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Board from '../Game/components/Board';
 import { clickStepNumber } from '../../../redux/Game/actions';
 import actionCreators from '../../../redux/Win/actions';
+import actionsLogin from '../../../redux/Login/actions';
 
 class Game extends Component {
   state = {
@@ -13,6 +14,7 @@ class Game extends Component {
 
   componentDidMount() {
     this.props.dispatch(actionCreators.getLines());
+    this.props.dispatch(actionsLogin.token(localStorage.getItem('token')));
   }
 
   calculateWinner = squares => {
