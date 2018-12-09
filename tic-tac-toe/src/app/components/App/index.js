@@ -22,7 +22,7 @@ class App extends Component {
           <Route exact path="/" component={Login} />
           <Route path="/game" component={Game} />
           {tokenLoading ? (
-            <div>Cargando... login</div>
+            <div />
           ) : (
             <div>
               <Route

@@ -38,10 +38,6 @@ const actionLogin = {
         type: actions.GET_TOKEN_SUCCESS,
         payload: responseToke.data
       });
-      if (!responseToke.data.length) {
-        // eslint-disable-next-line no-alert
-        alert('The token is invalide');
-      }
     } else {
       dispatch({
         type: actions.GET_TOKEN_FAILURE,

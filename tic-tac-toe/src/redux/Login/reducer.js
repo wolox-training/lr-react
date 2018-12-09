@@ -20,8 +20,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         loginError: initialState.loginError,
         auth: action.payload,
-        loginLoading: false,
-        tokenLoading: false
+        loginLoading: false
       };
     case actions.GET_LOGIN_FAILURE:
       return {
