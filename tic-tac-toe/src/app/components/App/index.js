@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router';
+import React, { Component, Fragment } from 'react';
+import { Route, Redirect } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { history } from '../../../redux/store';
 import '../../../scss/index.scss';
@@ -15,16 +16,34 @@ class App extends Component {
     this.props.dispatch(actionLogin.token(localStorage.getItem('token')));
   }
   render() {
+    const { tokenLoading } = this.props;
     return (
       <ConnectedRouter history={history}>
-        <Switch>
+        <Fragment>
           <Route exact path="/" component={Login} />
           <Route path="/game" component={Game} />
-          <About />
-        </Switch>
+          {tokenLoading ? (
+            <div />
+          ) : (
+            <div>
+              <Route
+                render={() => (this.props.userToke.length ? <Redirect to="/game" /> : <Redirect to="/" />)}
+              />
+            </div>
+          )}
+        </Fragment>
       </ConnectedRouter>
     );
   }
 }
+const mapStateToProps = store => ({
+  userToke: store.loginReducer.userToke,
+  tokenLoading: store.loginReducer.tokenLoading
+});
 
-export default connect()(App);
+App.propTypes = {
+  userToke: PropTypes.number,
+  tokenLoading: PropTypes.bool
+};
+
+export default connect(mapStateToProps)(App);
