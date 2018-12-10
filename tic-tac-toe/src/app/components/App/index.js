@@ -20,16 +20,14 @@ class App extends Component {
     return (
       <ConnectedRouter history={history}>
         <Fragment>
-          <Route exact path="/" component={Login} />
-          <Route path="/game" component={Game} />
+          <Route path="/" render={() => (this.props.userToke.length ? <Redirect to="/game" /> : <Login />)} />
           {tokenLoading ? (
             <div />
           ) : (
-            <div>
-              <Route
-                render={() => (this.props.userToke.length ? <Redirect to="/game" /> : <Redirect to="/" />)}
-              />
-            </div>
+            <Route
+              path="/game"
+              render={() => (this.props.userToke.length ? <Game /> : <Redirect to="/" />)}
+            />
           )}
         </Fragment>
       </ConnectedRouter>

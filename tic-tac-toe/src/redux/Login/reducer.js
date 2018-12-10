@@ -5,7 +5,7 @@ const initialState = {
   loginLoading: false,
   loginError: null,
   userToke: [],
-  tokenLoading: false
+  tokenLoading: true
 };
 
 const reducer = (state = initialState, action) => {
