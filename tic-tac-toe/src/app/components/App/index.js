@@ -10,6 +10,7 @@ import Game from '../../screens/Game';
 import Login from '../../screens/Login';
 import About from '../../screens/About';
 import actionLogin from '../../../redux/Login/actions';
+import NavBar from '../../screens/NavBar';
 
 class App extends Component {
   componentDidMount() {
@@ -20,6 +21,8 @@ class App extends Component {
     return (
       <ConnectedRouter history={history}>
         <Fragment>
+          {this.props.userToke.length ? <NavBar /> : <div />}
+          <Route path="/about" component={About} />
           <Route path="/" render={() => (this.props.userToke.length ? <Redirect to="/game" /> : <Login />)} />
           {tokenLoading ? (
             <div />

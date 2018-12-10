@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import Board from '../Game/components/Board';
 import { clickStepNumber } from '../../../redux/Game/actions';
 import actionCreators from '../../../redux/Win/actions';
-import NavBar from '../../screens/NavBar';
 
 class Game extends Component {
   state = {
@@ -63,7 +62,6 @@ class Game extends Component {
     const { constLineLoading } = this.props;
     return (
       <Fragment>
-        <NavBar />
         {constLineLoading ? (
           <div>Cargando...</div>
         ) : (

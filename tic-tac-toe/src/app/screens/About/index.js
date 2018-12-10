@@ -2,8 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
-import NavBar from '../../screens/NavBar';
-
 class About extends Component {
   componentDidMount() {
     if (!localStorage.getItem('token')) {
@@ -14,7 +12,6 @@ class About extends Component {
   render() {
     return (
       <Fragment>
-        <NavBar />
         <h1 className="titel-game">History TIC-TAC-TOE</h1>
         <p className="text-game">
           <img
