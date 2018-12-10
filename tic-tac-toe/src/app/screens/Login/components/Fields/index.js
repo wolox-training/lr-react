@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import styles from '../layout.scss';
+import styles from '../../layout.scss';
 
 export const customInput = ({ input, label, type, meta: { touched, error } }) => (
   <Fragment>
