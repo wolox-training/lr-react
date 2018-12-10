@@ -4,12 +4,16 @@
   "private": true,
   "dependencies": {
     "apisauce": "^1.0.0",
+    "connected-react-router": "^5.0.1",
+    "history": "^4.7.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
+    "react-router": "^4.3.1",
     "redux": "^4.0.1",
     "redux-create-types": "0.0.1",
+    "redux-form": "^7.2.3",
     "redux-thunk": "^2.3.0",
     "wolox-react-scripts": "1.2.1"
   },

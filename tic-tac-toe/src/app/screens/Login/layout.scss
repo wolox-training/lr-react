@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body,
+button {
+  font-family: 'Poppins', sans-serif;
+}
+form {
+  box-shadow: 1px 10px 8px #C4C4C4;
+  margin: auto;
+  max-width: 320px;
+  padding: 40px;
+}
+
+input {
+  border-bottom: solid 3px black;
+  border-radius: 0;
+  border-width: 0;
+}
+input:not([type='checkbox']) + label {
+  transition: all 0.2s;
+}
+
+input:not([type='checkbox']) + label {
+  left: 0;
+  pointer-events: none;
+  top: 0;
+}
+
+input:not([type='checkbox']):focus + label,
+.dirty input:not([type='checkbox']) + label {
+  color: black;
+  font-size: 12px;
+  top: -12px;
+}
+
+.flex-row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+input {
+  outline: 0;
+  padding: 0;
+}
+
+input,
+label,
+button[type='submit'] {
+  font-size: 20px;
+}
+
+select {
+  height: 30px;
+}
+
+label {
+  font-size: 14px;
+}
+
+.custom-input-container,
+.custom-select-container {
+  margin: 0 0 25px 0;
+  position: relative;
+}
+
+select {
+  display: block;
+}
+
+select,
+input:not([type='checkbox']),
+button[type='submit'] {
+  width: 100%;
+}
+
+button[type='submit'] {
+  background-color: #00ADEE;
+  color: white;
+}
+
+/* Validation styles */
+.valid input {
+  border-color: green;
+}
+
+.invalid input {
+  border-color: red;
+}
+
+.error-text {
+  background-color: red;
+  color: white;
+  margin-top: 10px;
+  position: relative;
+}
+
+.error-text::before {
+  border-color: transparent transparent red transparent;
+  border-style: solid;
+  border-width: 0 8px 8px 7px;
+  content: '';
+  height: 0;
+  left: 20px;
+  position: absolute;
+  top: -8px;
+  width: 0;
+}
+
+.textAlert {
+  color: red;
+}
