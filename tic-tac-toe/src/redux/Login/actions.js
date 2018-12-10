@@ -20,7 +20,7 @@ const actionLogin = {
         alert('Welcome to game');
         dispatch(push('/game'));
       } else {
-        // eslint-disable-next-line no-aler
+        // eslint-disable-next-line no-alert
         alert('Username or password is incorrect');
       }
     } else {
