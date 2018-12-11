@@ -1,8 +1,9 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import { customInput } from './Fields/index';
-import { required, minLength, validateEmail } from './Validation';
+import { required, minLength, validateEmail } from '../../../utils';
+
+import { customInput } from './components/Fields/index';
 import './layout.scss';
 
 const Login = ({ handleSubmit }) => (
