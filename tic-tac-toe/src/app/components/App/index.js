@@ -22,7 +22,10 @@ class App extends Component {
       <ConnectedRouter history={history}>
         <Fragment>
           {this.props.userToke.length ? <NavBar /> : <div />}
-          <Route path="/about" component={About} />
+          <Route
+            path="/about"
+            render={() => (this.props.userToke.length ? <About /> : <Redirect to="/" />)}
+          />
           <Route path="/" render={() => (this.props.userToke.length ? <Redirect to="/game" /> : <Login />)} />
           {tokenLoading ? (
             <div />

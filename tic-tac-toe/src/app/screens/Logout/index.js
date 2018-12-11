@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
 class Logout extends Component {
-  EventLogout = () => {
+  eventlogout = () => {
     const { dispatch } = this.props;
     localStorage.removeItem('token');
     if (!localStorage.getItem('token')) {
@@ -12,7 +12,7 @@ class Logout extends Component {
   };
 
   render() {
-    return <a onClick={() => this.EventLogout()}>Logout</a>;
+    return <a onClick={this.eventlogout}>Logout</a>;
   }
 }
 
