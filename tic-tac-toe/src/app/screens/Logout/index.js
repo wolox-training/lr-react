@@ -6,9 +6,7 @@ class Logout extends Component {
   eventlogout = () => {
     const { dispatch } = this.props;
     localStorage.removeItem('token');
-    if (!localStorage.getItem('token')) {
-      dispatch(push('/'));
-    }
+    dispatch(push('/'));
   };
 
   render() {
