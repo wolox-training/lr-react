@@ -1,3 +1,5 @@
+import { createReducer } from 'redux-recompose';
+
 import { actions } from './actionsTypes';
 
 const initialState = {
@@ -6,30 +8,20 @@ const initialState = {
   constLineError: null
 };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case actions.GET_LINES:
-      return {
-        ...state,
-        constLineLoading: action.payload
-      };
-    case actions.GET_LINES_SUCCESS:
-      return {
-        ...state,
-        constLineError: initialState.constLineError,
-        constLine: action.payload,
-        constLineLoading: false
-      };
-    case actions.GET_LINES_FAILURE:
-      return {
-        ...state,
-        constLine: initialState.constLine,
-        constLineError: action.payload,
-        constLineLoading: false
-      };
-    default:
-      return state;
-  }
+const reducerDescription = {
+  [actions.GET_LINES]: (state, action) => ({ ...state, constLineLoading: true }),
+  [actions.GET_LINES_SUCCESS]: (state, action) => ({
+    ...state,
+    constLineError: initialState.constLineError,
+    constLine: action.payload,
+    constLineLoading: false
+  }),
+  [actions.GET_LINES_FAILURE]: (state, action) => ({
+    ...state,
+    constLine: initialState.constLine,
+    constLineError: action.payload,
+    constLineLoading: false
+  })
 };
 
-export default reducer;
+export default createReducer(initialState, reducerDescription);
